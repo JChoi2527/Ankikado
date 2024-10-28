@@ -36,6 +36,8 @@ total_count = 0
 
 incorrect_cards = []
 
+clear()
+
 try:
     while True:
         # Select a random word entry
