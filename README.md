@@ -6,7 +6,7 @@ Picked cards are added to a 5-limit queue and will not be picked again until it 
 Made it for myself for some discrete studying, decided to share if anyone else wanted it :)
 
 ## Linux Installation
-Run the installation script from the Ankikado folder:
+Run the installation script from the Ankikado folder (pip3 must be installed):
 
 ```
 chmod +x install.sh
