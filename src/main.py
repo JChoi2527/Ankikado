@@ -26,7 +26,7 @@ def biased_shuffle (n):
         random_element = random.choice(n)
         if not random_element in recent_queue:
             recent_queue.append(random_element)
-            if len(recent_queue) > 5:
+            if len(recent_queue) > len(n) / 2:
                 recent_queue.pop(0)
             return random_element
 
