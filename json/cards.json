@@ -79,6 +79,26 @@
         {
             "front": "と",
             "back": "to"
+        },
+        {
+            "front": "な",
+            "back": "na"
+        },
+        {
+            "front": "に",
+            "back": "ni"
+        },
+        {
+            "front": "ぬ",
+            "back": "nu"
+        },
+        {
+            "front": "ね",
+            "back": "ne"
+        },
+        {
+            "front": "の",
+            "back": "no"
         }
     ]
 }
