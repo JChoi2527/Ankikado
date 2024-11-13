@@ -99,6 +99,26 @@
         {
             "front": "の",
             "back": "no"
+        },
+        {
+            "front": "は",
+            "back": "ha"
+        },
+        {
+            "front": "ひ",
+            "back": "hi"
+        },
+        {
+            "front": "ふ",
+            "back": "fu"
+        },
+        {
+            "front": "へ",
+            "back": "he"
+        },
+        {
+            "front": "ほ",
+            "back": "ho"
         }
     ]
 }

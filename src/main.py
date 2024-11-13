@@ -1,52 +1,21 @@
 import sys
-from os import system, name
 import json
-from pathlib import Path
 import random
-from collections import deque
+from os import system, name
+from pathlib import Path
 from enum import Enum
-
-class Result(Enum):
-    EXIT = 0
-    CORRECT = 1
-    INCORRECT = -1
-
-def clear_cli():
-    # windows
-    if name == 'nt':
-        _ = system('cls')
-
-    # mac and linux
-    else:
-        _ = system('clear')
-
-recent_queue = []
-def biased_shuffle (n):
-    while True:
-        random_element = random.choice(n)
-        if not random_element in recent_queue:
-            recent_queue.append(random_element)
-            if len(recent_queue) > len(n) / 2:
-                recent_queue.pop(0)
-            return random_element
-
-def print_incorrect(incorrect_list):
-    if incorrect_list:
-        print("Incorrect list:")
-        for card in incorrect_list:
-            print(card["front"] + ": " + card["back"])
-        print("")
 
 def main():
     path = Path(__file__).parent / "../json/cards.json"
     with path.open() as file:
         data = json.load(file)
 
-    cards = data["cards"]
+    all_cards = data["cards"]
 
     correct_count = 0
     total_count = 0
 
+    recent_queue = []
     incorrect_cards = []
 
     clear_cli()
@@ -58,14 +27,20 @@ def main():
 
     try:
         while True:
-            # Select a random word entry
-            random_card = biased_shuffle(cards)
+            # select random word entry
+            random_card = False
+            if incorrect_cards:
+                random_card = biased_shuffle(incorrect_cards, recent_queue)
+            
+            # if all incorrect cards are in recent queue
+            if random_card is False:
+                random_card = biased_shuffle(all_cards, recent_queue)
 
-            # Print the word
+            # print word
             print(random_card["front"])
 
-            # Prompt the user for input and save it in a variable
-            user_input = input("Input: ")
+            # prompt user for input and save it in a variable
+            user_input = input("Answer: ")
 
             clear_cli()
 
@@ -103,3 +78,43 @@ def main():
         print("")
         print_incorrect(incorrect_cards)
         exit(0)
+
+class Result(Enum):
+    EXIT = 0
+    CORRECT = 1
+    INCORRECT = -1
+
+def biased_shuffle (cards, queue):
+    # create list of cards not in queue
+    not_in_queue = [ card for card in cards]
+    for card in queue:
+        if card in not_in_queue:
+            not_in_queue.remove(card)
+
+    # if all cards are in queue, return false
+    if not not_in_queue:
+        return False
+    
+    random_card = random.choice(not_in_queue)
+
+    # add selected card to queue and pop if needed
+    queue.append(random_card)
+    if len(queue) > len(cards) / 2:
+        queue.pop(0)
+    return random_card
+
+def print_incorrect(incorrect_list):
+    if incorrect_list:
+        print("Incorrect list:")
+        for card in incorrect_list:
+            print(card["front"] + ": " + card["back"])
+        print("")
+
+def clear_cli():
+    # windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # mac and linux
+    else:
+        _ = system('clear')
