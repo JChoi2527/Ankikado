@@ -1,7 +1,9 @@
 # Ankikado
 Simple CLI flashcard program written in Python 3
 
-Picked cards are added to a 5-limit queue and will not be picked again until it leaves queue to prevent immediate repetition
+Picked cards are added to a queue and will not be picked again until it leaves queue to prevent immediate repetition
+
+Cards that were answered incorrectly are prioritized
 
 Made it for myself for some discrete studying, decided to share if anyone else wanted it :)
 
