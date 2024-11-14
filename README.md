@@ -14,6 +14,8 @@ Run the installation script from the Ankikado folder:
 ./install.sh
 ```
 
+*Note: Sudo is required to install python3-pip if it isn't installed already
+
 ## No Installation/Windows
 Alternatively, you can just run the main.py file directly with Python 3 from the Ankikado folder:
 
