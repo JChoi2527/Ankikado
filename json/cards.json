@@ -119,6 +119,70 @@
         {
             "front": "ほ",
             "back": "ho"
+        },
+        {
+            "front": "ま",
+            "back": "ma"
+        },
+        {
+            "front": "み",
+            "back": "mi"
+        },
+        {
+            "front": "む",
+            "back": "mu"
+        },
+        {
+            "front": "め",
+            "back": "me"
+        },
+        {
+            "front": "も",
+            "back": "mo"
+        },
+        {
+            "front": "や",
+            "back": "ya"
+        },
+        {
+            "front": "ゆ",
+            "back": "yu"
+        },
+        {
+            "front": "よ",
+            "back": "yo"
+        },
+        {
+            "front": "ら",
+            "back": "ra"
+        },
+        {
+            "front": "り",
+            "back": "ri"
+        },
+        {
+            "front": "る",
+            "back": "ru"
+        },
+        {
+            "front": "れ",
+            "back": "re"
+        },
+        {
+            "front": "ろ",
+            "back": "ro"
+        },
+        {
+            "front": "わ",
+            "back": "wa"
+        },
+        {
+            "front": "を",
+            "back": "wo"
+        },
+        {
+            "front": "ん",
+            "back": "n"
         }
     ]
 }

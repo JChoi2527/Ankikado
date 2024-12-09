@@ -11,12 +11,13 @@ def main():
         data = json.load(file)
 
     all_cards = data["cards"]
+    incorrect_cards = []
 
     correct_count = 0
     total_count = 0
 
-    recent_queue = []
-    incorrect_cards = []
+    all_queue = []
+    incorrect_queue = []
 
     clear_cli()
 
@@ -27,14 +28,13 @@ def main():
 
     try:
         while True:
-            # select random word entry
+            # every 10 cards, select random from incorrect_queue if it exists
             random_card = False
-            if incorrect_cards:
-                random_card = biased_shuffle(incorrect_cards, recent_queue)
+            if total_count%10 == 0:
+                random_card = biased_shuffle(incorrect_cards, incorrect_queue)
             
-            # if all incorrect cards are in recent queue
             if random_card is False:
-                random_card = biased_shuffle(all_cards, recent_queue)
+                random_card = biased_shuffle(all_cards, all_queue)
 
             # print word
             print(random_card["front"])
@@ -86,7 +86,7 @@ class Result(Enum):
 
 def biased_shuffle (cards, queue):
     # create list of cards not in queue
-    not_in_queue = [ card for card in cards]
+    not_in_queue = [card for card in cards]
     for card in queue:
         if card in not_in_queue:
             not_in_queue.remove(card)
@@ -99,7 +99,7 @@ def biased_shuffle (cards, queue):
 
     # add selected card to queue and pop if needed
     queue.append(random_card)
-    if len(queue) > len(cards) / 2:
+    if len(queue) >= len(cards):
         queue.pop(0)
     return random_card
 
