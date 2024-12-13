@@ -183,6 +183,26 @@
         {
             "front": "ん",
             "back": "n"
+        },
+        {
+            "front": "が",
+            "back": "ga"
+        },
+        {
+            "front": "ぎ",
+            "back": "gi"
+        },
+        {
+            "front": "ぐ",
+            "back": "gu"
+        },
+        {
+            "front": "げ",
+            "back": "ge"
+        },
+        {
+            "front": "ご",
+            "back": "go"
         }
     ]
 }

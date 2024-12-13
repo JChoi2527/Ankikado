@@ -28,12 +28,12 @@ def main():
 
     try:
         while True:
-            # every 10 cards, select random from incorrect_queue if it exists
+            # every n cards, select random from incorrect_queue if it exists
             random_card = False
-            if total_count%10 == 0:
+            if total_count%10 == 0 and incorrect_cards:
                 random_card = biased_shuffle(incorrect_cards, incorrect_queue)
             
-            if random_card is False:
+            if random_card == False:
                 random_card = biased_shuffle(all_cards, all_queue)
 
             # print word
@@ -85,11 +85,14 @@ class Result(Enum):
     INCORRECT = -1
 
 def biased_shuffle (cards, queue):
+    if not cards:
+        return False
+    
     # create list of cards not in queue
-    not_in_queue = [card for card in cards]
+    not_in_queue = cards.copy()
     for card in queue:
-        if card in not_in_queue:
-            not_in_queue.remove(card)
+        # if card in not_in_queue:
+        not_in_queue.remove(card)
 
     # if all cards are in queue, return false
     if not not_in_queue:
@@ -100,7 +103,7 @@ def biased_shuffle (cards, queue):
     # add selected card to queue and pop if needed
     queue.append(random_card)
     if len(queue) >= len(cards):
-        queue.pop(0)
+        queue.clear()
     return random_card
 
 def print_incorrect(incorrect_list):
