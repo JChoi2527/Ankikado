@@ -1,53 +1,23 @@
 import sys
-from os import system, name
 import json
-from pathlib import Path
 import random
-from collections import deque
+from os import system, name
+from pathlib import Path
 from enum import Enum
-
-class Result(Enum):
-    EXIT = 0
-    CORRECT = 1
-    INCORRECT = -1
-
-def clear_cli():
-    # windows
-    if name == 'nt':
-        _ = system('cls')
-
-    # mac and linux
-    else:
-        _ = system('clear')
-
-recent_queue = []
-def biased_shuffle (n):
-    while True:
-        random_element = random.choice(n)
-        if not random_element in recent_queue:
-            recent_queue.append(random_element)
-            if len(recent_queue) > len(n) / 2:
-                recent_queue.pop(0)
-            return random_element
-
-def print_incorrect(incorrect_list):
-    if incorrect_list:
-        print("Incorrect list:")
-        for card in incorrect_list:
-            print(card["front"] + ": " + card["back"])
-        print("")
 
 def main():
     path = Path(__file__).parent / "../json/cards.json"
     with path.open() as file:
         data = json.load(file)
 
-    cards = data["cards"]
+    all_cards = data["cards"]
+    incorrect_cards = []
 
     correct_count = 0
     total_count = 0
 
-    incorrect_cards = []
+    all_queue = []
+    incorrect_queue = []
 
     clear_cli()
 
@@ -58,14 +28,19 @@ def main():
 
     try:
         while True:
-            # Select a random word entry
-            random_card = biased_shuffle(cards)
+            # every n cards, select random from incorrect_queue if it exists
+            random_card = False
+            if total_count%5 == 0 and incorrect_cards:
+                random_card = biased_shuffle(incorrect_cards, incorrect_queue)
+            
+            if random_card == False:
+                random_card = biased_shuffle(all_cards, all_queue)
 
-            # Print the word
+            # print word
             print(random_card["front"])
 
-            # Prompt the user for input and save it in a variable
-            user_input = input("Input: ")
+            # prompt user for input and save it in a variable
+            user_input = input("Answer: ")
 
             clear_cli()
 
@@ -73,14 +48,17 @@ def main():
                 result = Result.CORRECT
                 correct_count += 1
                 total_count += 1
-
             elif user_input == "exit":
                 result = Result.EXIT
-
             else:
                 result = Result.INCORRECT
                 if not random_card in incorrect_cards:
                     incorrect_cards.append(random_card)
+                for card in all_cards:
+                    if user_input == card["back"]:
+                        if not card in incorrect_cards:
+                            incorrect_cards.append(card)
+                        break
                 total_count += 1
 
             print("Score: " + str(correct_count) + "/" + str(total_count))
@@ -103,3 +81,46 @@ def main():
         print("")
         print_incorrect(incorrect_cards)
         exit(0)
+
+class Result(Enum):
+    EXIT = 0
+    CORRECT = 1
+    INCORRECT = -1
+
+def biased_shuffle (cards, queue):
+    if not cards:
+        return False
+    
+    # create list of cards not in queue
+    not_in_queue = cards.copy()
+    for card in queue:
+        # if card in not_in_queue:
+        not_in_queue.remove(card)
+
+    # if all cards are in queue, return false
+    if not not_in_queue:
+        return False
+    
+    random_card = random.choice(not_in_queue)
+
+    # add selected card to queue and pop if needed
+    queue.append(random_card)
+    if len(queue) >= len(cards):
+        queue.clear()
+    return random_card
+
+def print_incorrect(incorrect_list):
+    if incorrect_list:
+        print("Incorrect list:")
+        for card in incorrect_list:
+            print(card["front"] + ": " + card["back"])
+        print("")
+
+def clear_cli():
+    # windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # mac and linux
+    else:
+        _ = system('clear')
