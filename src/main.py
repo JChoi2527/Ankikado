@@ -29,11 +29,18 @@ def main():
     try:
         while True:
             # every n cards, select random from incorrect_queue if it exists
-            random_card = False
-            if total_count%5 == 0 and incorrect_cards:
-                random_card = biased_shuffle(incorrect_cards, incorrect_queue)
-            
-            if random_card == False:
+            incorrect_len = len(incorrect_cards)
+
+            if incorrect_len > 0:
+                incorrect_period = 24 - (incorrect_len * 2)
+                if incorrect_period < 5:
+                    incorrect_period = 5
+
+                if total_count % incorrect_period == 0:
+                    random_card = biased_shuffle(incorrect_cards, incorrect_queue)
+                else:
+                    random_card = biased_shuffle(all_cards, all_queue)
+            else:
                 random_card = biased_shuffle(all_cards, all_queue)
 
             # print word
