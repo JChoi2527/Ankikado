@@ -6,28 +6,57 @@ from pathlib import Path
 from enum import Enum
 import argparse
 from pynput import keyboard
+import termios
+import tty
+
+# def get_input(prompt):
+#     print(prompt, end='', flush=True)
+#     user_input = []
+
+#     def on_press(key):
+#         try:
+#             if key == keyboard.Key.enter or key == keyboard.Key.space:
+#                 return False  # Stop listener
+#             elif key == keyboard.Key.backspace:
+#                 if user_input:
+#                     user_input.pop()
+#             else:
+#                 user_input.append(key.char)
+#         except AttributeError:
+#             pass  # Ignore special keys
+
+#     with keyboard.Listener(on_press=on_press) as listener:
+#         listener.join()
+
+#     print()  # Move to the next line
+#     return ''.join(user_input)
 
 def get_input(prompt):
     print(prompt, end='', flush=True)
-    user_input = []
-
-    def on_press(key):
-        try:
-            if key == keyboard.Key.enter or key == keyboard.Key.space:
-                return False  # Stop listener
-            elif key == keyboard.Key.backspace:
+    user_input = ""
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(fd)
+        while True:
+            char = sys.stdin.read(1)
+            if char == "\r" or char == " ":  # Enter or space
+                break
+            elif char == "\x7f":  # Backspace
                 if user_input:
-                    user_input.pop()
+                    user_input = user_input[:-1]
+                    print("\b \b", end='', flush=True)
+            elif char == "\x03":  # Ctrl+C
+                raise KeyboardInterrupt  # Simulate Ctrl+C interrupt
             else:
-                user_input.append(key.char)
-        except AttributeError:
-            pass  # Ignore special keys
-
-    with keyboard.Listener(on_press=on_press) as listener:
-        listener.join()
-
+                user_input += char
+                print(char, end='', flush=True)
+    except KeyboardInterrupt:
+        raise
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     print()  # Move to the next line
-    return ''.join(user_input)
+    return user_input
 
 def main():
     parser = argparse.ArgumentParser(description="Simple CLI flashcard program")
