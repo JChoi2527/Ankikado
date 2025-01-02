@@ -35,6 +35,7 @@ def main():
     print("")
     print("")
     print("")
+    print("")
 
     try:
         while True:
@@ -85,8 +86,10 @@ def main():
                 case Result.CORRECT:
                     print("Correct!")
                     print("")
+                    print("")
                 case Result.INCORRECT:
-                    print("INCORRECT, answer is: " + random_card["back"])
+                    print("INCORRECT")
+                    print(random_card["front"] + ": " + random_card["back"])
                     print("")
                 case Result.EXIT:
                     print_incorrect(incorrect_cards)
