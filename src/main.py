@@ -5,6 +5,29 @@ from os import system, name
 from pathlib import Path
 from enum import Enum
 import argparse
+from pynput import keyboard
+
+def get_input(prompt):
+    print(prompt, end='', flush=True)
+    user_input = []
+
+    def on_press(key):
+        try:
+            if key == keyboard.Key.enter or key == keyboard.Key.space:
+                return False  # Stop listener
+            elif key == keyboard.Key.backspace:
+                if user_input:
+                    user_input.pop()
+            else:
+                user_input.append(key.char)
+        except AttributeError:
+            pass  # Ignore special keys
+
+    with keyboard.Listener(on_press=on_press) as listener:
+        listener.join()
+
+    print()  # Move to the next line
+    return ''.join(user_input)
 
 def main():
     parser = argparse.ArgumentParser(description="Simple CLI flashcard program")
@@ -57,7 +80,7 @@ def main():
             print(random_card["front"])
 
             # prompt user for input and save it in a variable
-            user_input = input("Answer: ")
+            user_input = get_input("Answer: ")
 
             clear_cli()
 
@@ -71,11 +94,11 @@ def main():
                 result = Result.INCORRECT
                 if not random_card in incorrect_cards:
                     incorrect_cards.append(random_card)
-                for card in all_cards:
-                    if user_input == card["back"]:
-                        if not card in incorrect_cards:
-                            incorrect_cards.append(card)
-                        break
+                # for card in all_cards:
+                #     if user_input == card["back"]:
+                #         if not card in incorrect_cards:
+                #             incorrect_cards.append(card)
+                #         break
                 total_count += 1
 
             print("Score: " + str(correct_count) + "/" + str(total_count))
@@ -120,7 +143,7 @@ def biased_shuffle (cards, queue):
     
     random_card = random.choice(not_in_queue)
 
-    # add selected card to queue and pop if needed
+    # add selected card to queue, clear queue if all cards in queue
     queue.append(random_card)
     if len(queue) >= len(cards):
         queue.clear()
