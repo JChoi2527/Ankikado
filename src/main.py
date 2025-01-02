@@ -193,3 +193,6 @@ def clear_cli():
     # mac and linux
     else:
         _ = system('clear')
+
+if __name__ == "__main__":
+    main()  # Or your main function entry point
