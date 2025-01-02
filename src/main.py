@@ -4,9 +4,19 @@ import random
 from os import system, name
 from pathlib import Path
 from enum import Enum
+import argparse
 
 def main():
-    path = Path(__file__).parent / "../json/cards.json"
+    parser = argparse.ArgumentParser(description="Simple CLI flashcard program")
+    parser.add_argument(
+        "-d", "--deck",
+        help="Specify flashcard deck",
+        default="japanese"
+    )
+
+    args = parser.parse_args()
+    path_string = "../json/" + str(args.deck) + ".json"
+    path = Path(__file__).parent / path_string
     with path.open() as file:
         data = json.load(file)
 
