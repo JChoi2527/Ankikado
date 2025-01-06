@@ -63,7 +63,7 @@ def main():
     parser.add_argument(
         "-d", "--deck",
         help="Specify flashcard deck",
-        default="japanese"
+        default="Japanese"
     )
 
     args = parser.parse_args()
@@ -85,7 +85,8 @@ def main():
 
     print("Ankikado")
     print("")
-    print("")
+    print(str(args.deck))
+    print(str(len(all_cards)) + " cards")
     print("")
 
     try:
@@ -131,14 +132,19 @@ def main():
                 total_count += 1
 
             print("Score: " + str(correct_count) + "/" + str(total_count))
-            print("")
+            if (len(all_queue) == 0):
+                print("Deck reset")
+            else:
+                print("")
 
             match result:
                 case Result.CORRECT:
                     print("Correct!")
                     print("")
+                    print("")
                 case Result.INCORRECT:
-                    print("INCORRECT, answer is: " + random_card["back"])
+                    print("INCORRECT")
+                    print(random_card["front"] + ": " + random_card["back"])
                     print("")
                 case Result.EXIT:
                     print_incorrect(incorrect_cards)
@@ -193,3 +199,6 @@ def clear_cli():
     # mac and linux
     else:
         _ = system('clear')
+
+if __name__ == "__main__":
+    main()  # Or your main function entry point
