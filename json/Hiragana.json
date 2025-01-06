@@ -196,7 +196,7 @@
             "front": "ぐ",
             "back": "gu"
         },
-        {
+        {   
             "front": "げ",
             "back": "ge"
         },
@@ -243,6 +243,46 @@
         {
             "front": "ど",
             "back": "do"
+        },
+        {
+            "front": "ば",
+            "back": "ba"
+        },
+        {
+            "front": "び",
+            "back": "bi"
+        },
+        {
+            "front": "ぶ",
+            "back": "bu"
+        },
+        {
+            "front": "べ",
+            "back": "be"
+        },
+        {
+            "front": "ぼ",
+            "back": "bo"
+        },
+        {
+            "front": "ぱ",
+            "back": "pa"
+        },
+        {
+            "front": "ぴ",
+            "back": "pi"
+        },
+        {
+            "front": "ぷ",
+            "back": "pu"
+        },
+        {
+            "front": "ぺ",
+            "back": "pe"
+        },
+        {
+            "front": "ぽ",
+            "back": "po"
         }
     ]
 }
