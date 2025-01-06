@@ -63,7 +63,7 @@ def main():
     parser.add_argument(
         "-d", "--deck",
         help="Specify flashcard deck",
-        default="japanese"
+        default="Japanese"
     )
 
     args = parser.parse_args()
@@ -85,8 +85,8 @@ def main():
 
     print("Ankikado")
     print("")
-    print("")
-    print("")
+    print(str(args.deck))
+    print(str(len(all_cards)) + " cards")
     print("")
 
     try:
@@ -132,7 +132,10 @@ def main():
                 total_count += 1
 
             print("Score: " + str(correct_count) + "/" + str(total_count))
-            print("")
+            if (len(all_queue) == 0):
+                print("Deck reset")
+            else:
+                print("")
 
             match result:
                 case Result.CORRECT:
