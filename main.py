@@ -5,9 +5,8 @@ from os import system, name
 from pathlib import Path
 from enum import Enum
 import argparse
-from pynput import keyboard
-import termios
-import tty
+# import termios
+# import tty
 
 # def get_input(prompt):
 #     print(prompt, end='', flush=True)
@@ -35,9 +34,9 @@ def get_input(prompt):
     print(prompt, end='', flush=True)
     user_input = ""
     fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
+    # old_settings = termios.tcgetattr(fd)
     try:
-        tty.setraw(fd)
+        # tty.setraw(fd)
         while True:
             char = sys.stdin.read(1)
             if char == "\r" or char == " ":  # Enter or space
@@ -53,8 +52,8 @@ def get_input(prompt):
                 print(char, end='', flush=True)
     except KeyboardInterrupt:
         raise
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    # finally:
+        # termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     print()  # Move to the next line
     return user_input
 
@@ -67,7 +66,7 @@ def main():
     )
 
     args = parser.parse_args()
-    path_string = "../json/" + str(args.deck) + ".json"
+    path_string = "json/" + str(args.deck) + ".json"
     path = Path(__file__).parent / path_string
     with path.open() as file:
         data = json.load(file)
