@@ -50,7 +50,7 @@
         },
         {
             "front": "づ",
-            "back": "zu"
+            "back": "dzu"
         },
         {
             "front": "で",
@@ -98,6 +98,106 @@
         },
         {
             "front": "ぽ",
+            "back": "po"
+        },
+        {
+            "front": "ガ",
+            "back": "ga"
+        },
+        {
+            "front": "ギ",
+            "back": "gi"
+        },
+        {
+            "front": "グ",
+            "back": "gu"
+        },
+        {   
+            "front": "ゲ",
+            "back": "ge"
+        },
+        {
+            "front": "ゴ",
+            "back": "go"
+        },
+        {
+            "front": "ザ",
+            "back": "za"
+        },
+        {
+            "front": "ジ",
+            "back": "ji"
+        },
+        {
+            "front": "ズ",
+            "back": "zu"
+        },
+        {
+            "front": "ゼ",
+            "back": "ze"
+        },
+        {
+            "front": "ゾ",
+            "back": "zo"
+        },
+        {
+            "front": "ダ",
+            "back": "da"
+        },
+        {
+            "front": "ヂ",
+            "back": "ji"
+        },
+        {
+            "front": "ヅ",
+            "back": "dzu"
+        },
+        {
+            "front": "デ",
+            "back": "de"
+        },
+        {
+            "front": "ド",
+            "back": "do"
+        },
+        {
+            "front": "バ",
+            "back": "ba"
+        },
+        {
+            "front": "ビ",
+            "back": "bi"
+        },
+        {
+            "front": "ブ",
+            "back": "bu"
+        },
+        {
+            "front": "ベ",
+            "back": "be"
+        },
+        {
+            "front": "ボ",
+            "back": "bo"
+        },
+        {
+            "front": "パ",
+            "back": "pa"
+        },
+        {
+            "front": "ピ",
+            "back": "pi"
+        },
+        {
+            "front": "プ",
+            "back": "pu"
+        },
+        {
+            "front": "ペ",
+            "back": "pe"
+        },
+        {
+            "front": "ポ",
             "back": "po"
         }
     ]

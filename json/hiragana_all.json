@@ -1,287 +1,287 @@
 {
     "cards": [
         {
-            "front": "ア",
+            "front": "あ",
             "back": "a"
         },
         {
-            "front": "イ",
+            "front": "い",
             "back": "i"
         },
         {
-            "front": "ウ",
+            "front": "う",
             "back": "u"
         },
         {
-            "front": "エ",
+            "front": "え",
             "back": "e"
         },
         {
-            "front": "オ",
+            "front": "お",
             "back": "o"
         },
         {
-            "front": "カ",
+            "front": "か",
             "back": "ka"
         },
         {
-            "front": "キ",
+            "front": "き",
             "back": "ki"
         },
         {
-            "front": "ク",
+            "front": "く",
             "back": "ku"
         },
         {
-            "front": "ケ",
+            "front": "け",
             "back": "ke"
         },
         {
-            "front": "コ",
+            "front": "こ",
             "back": "ko"
         },
         {
-            "front": "サ",
+            "front": "さ",
             "back": "sa"
         },
         {
-            "front": "シ",
+            "front": "し",
             "back": "shi"
         },
         {
-            "front": "ス",
+            "front": "す",
             "back": "su"
         },
         {
-            "front": "セ",
+            "front": "せ",
             "back": "se"
         },
         {
-            "front": "ソ",
+            "front": "そ",
             "back": "so"
         },
         {
-            "front": "タ",
+            "front": "た",
             "back": "ta"
         },
         {
-            "front": "チ",
+            "front": "ち",
             "back": "chi"
         },
         {
-            "front": "ツ",
+            "front": "つ",
             "back": "tsu"
         },
         {
-            "front": "テ",
+            "front": "て",
             "back": "te"
         },
         {
-            "front": "ト",
+            "front": "と",
             "back": "to"
         },
         {
-            "front": "ナ",
+            "front": "な",
             "back": "na"
         },
         {
-            "front": "ニ",
+            "front": "に",
             "back": "ni"
         },
         {
-            "front": "ヌ",
+            "front": "ぬ",
             "back": "nu"
         },
         {
-            "front": "ネ",
+            "front": "ね",
             "back": "ne"
         },
         {
-            "front": "ノ",
+            "front": "の",
             "back": "no"
         },
         {
-            "front": "ハ",
+            "front": "は",
             "back": "ha"
         },
         {
-            "front": "ヒ",
+            "front": "ひ",
             "back": "hi"
         },
         {
-            "front": "フ",
+            "front": "ふ",
             "back": "fu"
         },
         {
-            "front": "ヘ",
+            "front": "へ",
             "back": "he"
         },
         {
-            "front": "ホ",
+            "front": "ほ",
             "back": "ho"
         },
         {
-            "front": "マ",
+            "front": "ま",
             "back": "ma"
         },
         {
-            "front": "ミ",
+            "front": "み",
             "back": "mi"
         },
         {
-            "front": "ム",
+            "front": "む",
             "back": "mu"
         },
         {
-            "front": "メ",
+            "front": "め",
             "back": "me"
         },
         {
-            "front": "モ",
+            "front": "も",
             "back": "mo"
         },
         {
-            "front": "ヤ",
+            "front": "や",
             "back": "ya"
         },
         {
-            "front": "ユ",
+            "front": "ゆ",
             "back": "yu"
         },
         {
-            "front": "ヨ",
+            "front": "よ",
             "back": "yo"
         },
         {
-            "front": "ラ",
+            "front": "ら",
             "back": "ra"
         },
         {
-            "front": "リ",
+            "front": "り",
             "back": "ri"
         },
         {
-            "front": "ル",
+            "front": "る",
             "back": "ru"
         },
         {
-            "front": "レ",
+            "front": "れ",
             "back": "re"
         },
         {
-            "front": "ロ",
+            "front": "ろ",
             "back": "ro"
         },
         {
-            "front": "ワ",
+            "front": "わ",
             "back": "wa"
         },
         {
-            "front": "ヲ",
+            "front": "を",
             "back": "o"
         },
         {
-            "front": "ン",
+            "front": "ん",
             "back": "n"
         },
         {
-            "front": "ガ",
+            "front": "が",
             "back": "ga"
         },
         {
-            "front": "ギ",
+            "front": "ぎ",
             "back": "gi"
         },
         {
-            "front": "グ",
+            "front": "ぐ",
             "back": "gu"
         },
         {   
-            "front": "ゲ",
+            "front": "げ",
             "back": "ge"
         },
         {
-            "front": "ゴ",
+            "front": "ご",
             "back": "go"
         },
         {
-            "front": "ザ",
+            "front": "ざ",
             "back": "za"
         },
         {
-            "front": "ジ",
+            "front": "じ",
             "back": "ji"
         },
         {
-            "front": "ズ",
+            "front": "ず",
             "back": "zu"
         },
         {
-            "front": "ゼ",
+            "front": "ぜ",
             "back": "ze"
         },
         {
-            "front": "ゾ",
+            "front": "ぞ",
             "back": "zo"
         },
         {
-            "front": "ダ",
+            "front": "だ",
             "back": "da"
         },
         {
-            "front": "ヂ",
+            "front": "ぢ",
             "back": "ji"
         },
         {
-            "front": "ヅ",
+            "front": "づ",
             "back": "dzu"
         },
         {
-            "front": "デ",
+            "front": "で",
             "back": "de"
         },
         {
-            "front": "ド",
+            "front": "ど",
             "back": "do"
         },
         {
-            "front": "バ",
+            "front": "ば",
             "back": "ba"
         },
         {
-            "front": "ビ",
+            "front": "び",
             "back": "bi"
         },
         {
-            "front": "ブ",
+            "front": "ぶ",
             "back": "bu"
         },
         {
-            "front": "ベ",
+            "front": "べ",
             "back": "be"
         },
         {
-            "front": "ボ",
+            "front": "ぼ",
             "back": "bo"
         },
         {
-            "front": "パ",
+            "front": "ぱ",
             "back": "pa"
         },
         {
-            "front": "ピ",
+            "front": "ぴ",
             "back": "pi"
         },
         {
-            "front": "プ",
+            "front": "ぷ",
             "back": "pu"
         },
         {
-            "front": "ペ",
+            "front": "ぺ",
             "back": "pe"
         },
         {
-            "front": "ポ",
+            "front": "ぽ",
             "back": "po"
         }
     ]
