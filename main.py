@@ -40,10 +40,8 @@ def main():
     try:
         while True:
             # every n cards, select random from incorrect_queue if it exists
-            incorrect_len = len(incorrect_cards)
-
-            if incorrect_len > 0:
-                match incorrect_len:
+            if len(incorrect_cards) > 0:
+                match len(incorrect_cards):
                     case 1:
                         incorrect_period = 20
                     case 2:

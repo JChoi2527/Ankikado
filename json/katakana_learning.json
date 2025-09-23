@@ -1,0 +1,104 @@
+{
+    "cards": [
+        {
+            "front": "ア",
+            "back": "a"
+        },
+        {
+            "front": "イ",
+            "back": "i"
+        },
+        {
+            "front": "ウ",
+            "back": "u"
+        },
+        {
+            "front": "エ",
+            "back": "e"
+        },
+        {
+            "front": "オ",
+            "back": "o"
+        },
+        {
+            "front": "カ",
+            "back": "ka"
+        },
+        {
+            "front": "キ",
+            "back": "ki"
+        },
+        {
+            "front": "ク",
+            "back": "ku"
+        },
+        {
+            "front": "ケ",
+            "back": "ke"
+        },
+        {
+            "front": "コ",
+            "back": "ko"
+        },
+        {
+            "front": "サ",
+            "back": "sa"
+        },
+        {
+            "front": "シ",
+            "back": "shi"
+        },
+        {
+            "front": "ス",
+            "back": "su"
+        },
+        {
+            "front": "セ",
+            "back": "se"
+        },
+        {
+            "front": "ソ",
+            "back": "so"
+        },
+        {
+            "front": "タ",
+            "back": "ta"
+        },
+        {
+            "front": "チ",
+            "back": "chi"
+        },
+        {
+            "front": "ツ",
+            "back": "tsu"
+        },
+        {
+            "front": "テ",
+            "back": "te"
+        },
+        {
+            "front": "ト",
+            "back": "to"
+        },
+        {
+            "front": "ナ",
+            "back": "na"
+        },
+        {
+            "front": "ニ",
+            "back": "ni"
+        },
+        {
+            "front": "ヌ",
+            "back": "nu"
+        },
+        {
+            "front": "ネ",
+            "back": "ne"
+        },
+        {
+            "front": "ノ",
+            "back": "no"
+        }
+    ]
+}
