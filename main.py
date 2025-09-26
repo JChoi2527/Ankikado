@@ -93,12 +93,17 @@ def main():
                     boxes_queue[0].append(selected_card)
                 total_count += 1
 
-            print("Score: " + str(correct_count) + "/" + str(total_count))
+            print(f"Score: {(correct_count)}/{str(total_count)}")
 
             if len(boxes[boxes_num - 1]) == cards_num:
                 print("All cards in final box!!!")
             else:
-                print("")
+                for index, box in enumerate(boxes):
+                    print(f"Box {index+1}: {len(box)}", end='')
+                    if index < boxes_num - 1:
+                        print(", ", end='')
+                    else:
+                        print("")
 
             match result:
                 case Result.CORRECT:
@@ -123,7 +128,7 @@ def main():
 
     except KeyboardInterrupt:
         clear_cli()
-        print("Score: " + str(correct_count) + "/" + str(total_count))
+        print(f"Score: {str(correct_count)}/{str(total_count)}")
         print("")
         print_incorrect(incorrect_cards)
         exit(0)
