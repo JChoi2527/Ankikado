@@ -11,7 +11,7 @@ def main():
     parser.add_argument(
         "-d", "--deck",
         help="Specify flashcard deck",
-        default="kana"
+        default="Kana"
     )
 
     args = parser.parse_args()
@@ -43,19 +43,18 @@ def main():
             incorrect_len = len(incorrect_cards)
 
             if incorrect_len > 0:
-                match incorrect_len:
-                    case 1:
-                        incorrect_period = 20
-                    case 2:
-                        incorrect_period = 15
-                    case 3:
-                        incorrect_period = 11
-                    case 4:
-                        incorrect_period = 8
-                    case 5:
-                        incorrect_period = 6
-                    case _:
-                        incorrect_period = 5
+                if incorrect_len == 1:
+                    incorrect_period = 20
+                elif incorrect_len == 2:
+                    incorrect_period = 15
+                elif incorrect_len == 3:
+                    incorrect_period = 11
+                elif incorrect_len == 4:
+                    incorrect_period = 8
+                elif incorrect_len == 5:
+                    incorrect_period = 6
+                else:
+                    incorrect_period = 5
 
                 if total_count % incorrect_period == 0:
                     random_card = biased_shuffle(incorrect_cards, incorrect_queue)
@@ -95,18 +94,17 @@ def main():
             else:
                 print("")
 
-            match result:
-                case Result.CORRECT:
-                    print("Correct!")
-                    print("")
-                    print("")
-                case Result.INCORRECT:
-                    print("INCORRECT")
-                    print(random_card["front"] + ": " + random_card["back"])
-                    print("")
-                case Result.EXIT:
-                    print_incorrect(incorrect_cards)
-                    sys.exit()
+            if result == Result.CORRECT:
+                print("Correct!")
+                print("")
+                print("")
+            elif result == Result.INCORRECT:
+                print("INCORRECT")
+                print(random_card["front"] + ": " + random_card["back"])
+                print("")
+            elif result == Result.EXIT:
+                print_incorrect(incorrect_cards)
+                sys.exit()
 
     except KeyboardInterrupt:
         clear_cli()
