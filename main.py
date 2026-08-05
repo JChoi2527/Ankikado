@@ -7,12 +7,37 @@ from enum import Enum
 import argparse
 
 def main():
-    parser = argparse.ArgumentParser(description="Simple CLI flashcard program")
-    parser.add_argument(
-        "-d", "--deck",
-        help="Specify flashcard deck",
-        default="kana"
+    # add_help=False so that -h can be used for hiragana; --help still works
+    parser = argparse.ArgumentParser(
+        description="Simple CLI flashcard program",
+        add_help=False
     )
+    parser.add_argument(
+        "--help",
+        action="help",
+        help="Show this help message and exit"
+    )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "-h", "--hiragana",
+        dest="deck",
+        action="store_const",
+        const="hiragana",
+        help="Use the hiragana deck"
+    )
+    group.add_argument(
+        "-k", "--katakana",
+        dest="deck",
+        action="store_const",
+        const="katakana",
+        help="Use the katakana deck"
+    )
+    group.add_argument(
+        "-d", "--deck",
+        dest="deck",
+        help="Specify flashcard deck by name (default: kana)"
+    )
+    parser.set_defaults(deck="kana")
 
     args = parser.parse_args()
     path_string = "json/" + str(args.deck) + ".json"
@@ -40,20 +65,21 @@ def main():
     try:
         while True:
             # every n cards, select random from incorrect_queue if it exists
-            if len(incorrect_cards) > 0:
-                match len(incorrect_cards):
-                    case 1:
-                        incorrect_period = 20
-                    case 2:
-                        incorrect_period = 15
-                    case 3:
-                        incorrect_period = 11
-                    case 4:
-                        incorrect_period = 8
-                    case 5:
-                        incorrect_period = 6
-                    case _:
-                        incorrect_period = 5
+            incorrect_len = len(incorrect_cards)
+
+            if incorrect_len > 0:
+                if incorrect_len == 1:
+                    incorrect_period = 20
+                elif incorrect_len == 2:
+                    incorrect_period = 15
+                elif incorrect_len == 3:
+                    incorrect_period = 11
+                elif incorrect_len == 4:
+                    incorrect_period = 8
+                elif incorrect_len == 5:
+                    incorrect_period = 6
+                else:
+                    incorrect_period = 5
 
                 if total_count % incorrect_period == 0:
                     random_card = biased_shuffle(incorrect_cards, incorrect_queue)
@@ -93,18 +119,17 @@ def main():
             else:
                 print("")
 
-            match result:
-                case Result.CORRECT:
-                    print("Correct!")
-                    print("")
-                    print("")
-                case Result.INCORRECT:
-                    print("INCORRECT")
-                    print(random_card["front"] + ": " + random_card["back"])
-                    print("")
-                case Result.EXIT:
-                    print_incorrect(incorrect_cards)
-                    sys.exit()
+            if result == Result.CORRECT:
+                print("Correct!")
+                print("")
+                print("")
+            elif result == Result.INCORRECT:
+                print("INCORRECT")
+                print(random_card["front"] + ": " + random_card["back"])
+                print("")
+            elif result == Result.EXIT:
+                print_incorrect(incorrect_cards)
+                sys.exit()
 
     except KeyboardInterrupt:
         clear_cli()

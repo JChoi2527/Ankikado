@@ -14,13 +14,15 @@ Run the installation script from the Ankikado folder:
 ./install.sh
 ```
 
-*Note: Sudo is required to install python3-pip if it isn't installed already
+*Note: Run this **without** sudo. The script prompts for your password only when it needs to install python3-pip (the one step that requires root); running the whole script as root installs the command to the wrong place.
+
+After it finishes, run `source ~/.bashrc` (or open a new terminal) so the `ankikado` command is on your PATH.
 
 ## No Installation/Windows
 Alternatively, you can just run the main.py file directly with Python 3 from the Ankikado folder:
 
 ```
-python3 src/main.py
+python3 main.py
 ```
 
 ## Usage
