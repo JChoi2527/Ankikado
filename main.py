@@ -7,12 +7,37 @@ from enum import Enum
 import argparse
 
 def main():
-    parser = argparse.ArgumentParser(description="Simple CLI flashcard program")
-    parser.add_argument(
-        "-d", "--deck",
-        help="Specify flashcard deck",
-        default="Kana"
+    # add_help=False so that -h can be used for hiragana; --help still works
+    parser = argparse.ArgumentParser(
+        description="Simple CLI flashcard program",
+        add_help=False
     )
+    parser.add_argument(
+        "--help",
+        action="help",
+        help="Show this help message and exit"
+    )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "-h", "--hiragana",
+        dest="deck",
+        action="store_const",
+        const="hiragana",
+        help="Use the hiragana deck"
+    )
+    group.add_argument(
+        "-k", "--katakana",
+        dest="deck",
+        action="store_const",
+        const="katakana",
+        help="Use the katakana deck"
+    )
+    group.add_argument(
+        "-d", "--deck",
+        dest="deck",
+        help="Specify flashcard deck by name (default: kana)"
+    )
+    parser.set_defaults(deck="kana")
 
     args = parser.parse_args()
     path_string = "json/" + str(args.deck) + ".json"
