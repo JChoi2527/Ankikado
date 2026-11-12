@@ -6,7 +6,7 @@ setup(
     author="Jake Choi",
     author_email="JChoi2527@gmail.com",
     python_requires='>=3.8',
-    py_modules = ['main'],
+    py_modules = ['main', 'scheduler'],
     entry_points = {
         'console_scripts': [
             'ankikado = main:main'
